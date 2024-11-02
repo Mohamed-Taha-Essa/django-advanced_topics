@@ -1,7 +1,7 @@
 
 # book_advanced_topics
 
-A repository designed to explore and apply advanced Django concepts, including **NinjaAPI**, **GraphQL**, **Custom Middleware**, and more.
+A repository designed to explore and apply advanced Django concepts, focusing on **Django Ninja** for creating high-performance APIs.
 
 ## Table of Contents
 1. [Overview](#overview)
@@ -13,18 +13,16 @@ A repository designed to explore and apply advanced Django concepts, including *
 7. [Contributing](#contributing)
 
 ## Overview
-This project showcases advanced techniques in Django development, starting with CRUD operations using Django Ninja for a fast, async-friendly API framework. Future topics will include GraphQL integrations, custom middleware, and performance optimization techniques.
+This branch of `book_advanced_topics` is dedicated to building APIs using **Django Ninja**. The project showcases CRUD operations and filters implemented with Django Ninja’s efficient, async-friendly API framework.
 
 ## Features
 - **CRUD Operations**: Implemented using Django Ninja.
-- **Advanced API Functionality**: Includes features such as custom middleware and GraphQL.
+- **Advanced API Functionality**: Built entirely with Django Ninja.
 - **Fast and Scalable**: Designed with performance in mind for production-grade applications.
 
 ## Technologies Used
 - **Django**: Web framework for Python.
 - **Django Ninja**: High-performance web framework for building APIs.
-- **GraphQL**: Coming soon for advanced querying.
-- **Custom Middleware**: Enhancements for request/response handling.
 
 ## Setup and Installation
 
@@ -32,6 +30,7 @@ This project showcases advanced techniques in Django development, starting with 
    ```bash
    git clone https://github.com/your-username/book_advanced_topics.git
    cd book_advanced_topics
+   git checkout django_ninja
    ```
 
 2. **Create a Virtual Environment**:
@@ -62,7 +61,7 @@ This project showcases advanced techniques in Django development, starting with 
 
 The following endpoints manage `Book` resources in the **book_advanced_topics** API.
 
-### 1. List All Books
+#### 1. List All Books
 - **Endpoint**: `GET /api/`
 - **Description**: Retrieve a list of books with optional filters.
 - **Response**: `200 OK` - Returns a list of books matching the filters.
@@ -70,7 +69,7 @@ The following endpoints manage `Book` resources in the **book_advanced_topics** 
   - `filters`: Use the `BookFilterSchema` to filter the books list.
 - **Example Request**: `/api/`
 
-### 2. Get Book Details
+#### 2. Get Book Details
 - **Endpoint**: `GET /api/{book_id}`
 - **Description**: Retrieve details of a specific book by its ID.
 - **Response**: `200 OK` - Returns the details of the specified book.
@@ -78,7 +77,7 @@ The following endpoints manage `Book` resources in the **book_advanced_topics** 
   - `book_id`: The unique ID of the book to retrieve.
 - **Example Request**: `/api/1`
 
-### 3. Create a New Book
+#### 3. Create a New Book
 - **Endpoint**: `POST /api/`
 - **Description**: Add a new book to the database.
 - **Response**: `200 OK` - Returns the created book’s details.
@@ -103,7 +102,7 @@ The following endpoints manage `Book` resources in the **book_advanced_topics** 
   }
   ```
 
-### 4. Update a Book
+#### 4. Update a Book
 - **Endpoint**: `PUT /api/{book_id}`
 - **Description**: Update details of an existing book.
 - **Response**: `200 OK` - Returns the updated book’s details.
@@ -112,7 +111,7 @@ The following endpoints manage `Book` resources in the **book_advanced_topics** 
 - **Payload**: Same as the **Create a New Book** endpoint.
 - **Example Request**: `/api/1`
 
-### 5. Delete a Book
+#### 5. Delete a Book
 - **Endpoint**: `DELETE /api/{book_id}`
 - **Description**: Delete a book from the database.
 - **Response**: `200 OK` - Returns a message indicating successful deletion.
@@ -123,3 +122,6 @@ The following endpoints manage `Book` resources in the **book_advanced_topics** 
 ## Contributing
 Contributions are welcome! Please fork the repository and create a pull request.
 
+---
+
+This README provides focused documentation for the Django Ninja API functionality in the `django_ninja` branch.
