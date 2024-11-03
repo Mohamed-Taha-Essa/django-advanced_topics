@@ -1,5 +1,5 @@
 
-# book_advanced_topics
+# django_advanced_topics
 
 A repository designed to explore and apply advanced Django concepts, focusing on **Django Ninja** for creating high-performance APIs.
 
