@@ -21,7 +21,7 @@ class Book(models.Model):
         'Category', related_name='book_category', on_delete=models.SET_NULL, null=True)
     author = models.ForeignKey(
         Author, related_name='book_author', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='book')       #must add media and static setting
+    image = models.ImageField(upload_to='book' ,null=True ,blank=True)       #must add media and static setting
     publication_date = models.DateField(default=timezone.now)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField(max_length=3000)
@@ -46,7 +46,7 @@ class Review(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
-    image = models.ImageField(upload_to='category')
+    image = models.ImageField(upload_to='category' ,null=True ,blank=True)
 
     slug = models.SlugField(blank=True, null=True)
 
