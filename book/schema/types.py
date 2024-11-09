@@ -1,5 +1,7 @@
 import graphene
 from graphene_django import DjangoObjectType
+from graphene import relay
+from book.filters import BookFilter
 from ..models import Category, Book ,Author ,Review
 
 
@@ -17,6 +19,7 @@ class ReviewType(DjangoObjectType):
     class Meta:
         model = Review
         fields = ("book", "reviewer_name", "content", "created_at" ,'rating' )
+        
         # fields = "__all__"    
     
 class BookType(DjangoObjectType):
@@ -24,10 +27,15 @@ class BookType(DjangoObjectType):
     class Meta:
         model = Book
         fields = ("id", "title","image","review", "author", "category" ,'publication_date' ,"price" ,"description")
-        # fields = "__all__"
+        # filterset_class = BookFilter 
+        interfaces = (relay.Node,) 
 
     def resolve_review(self, info) :
         return self.review_book.all()
+
+class BookConnection(relay.Connection):
+    class Meta:
+        node = BookType
 
 class AuthorType(DjangoObjectType):
     class Meta:

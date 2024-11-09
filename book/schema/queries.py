@@ -1,9 +1,16 @@
 import graphene
-from .types import BookType , AuthorType ,ReviewType ,CategoryType
+from graphene import relay
+
+from book.filters import BookFilter
+from graphene_django.filter import DjangoFilterConnectionField
+
+from .types import BookType , AuthorType ,ReviewType ,CategoryType ,BookConnection
 from ..models import Category, Book ,Author ,Review
 
 class Query(graphene.ObjectType):
     books = graphene.List(BookType)
+    all_books = DjangoFilterConnectionField(BookType ,filterset_class =BookFilter )
+
     book = graphene.Field(BookType ,id = graphene.Int(required = True))
     
     authors = graphene.List(AuthorType)

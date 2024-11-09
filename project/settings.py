@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
      "graphene_django" ,
+     "django_filters",
 
+ 
     'book'
 ]
 
@@ -136,5 +139,5 @@ MEDIA_ROOT = BASE_DIR/'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 GRAPHENE = {
-    "SCHEMA": "book.schema.schema"
+    "SCHEMA": "book.schema.schema.schema"
 }
