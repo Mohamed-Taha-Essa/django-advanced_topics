@@ -83,7 +83,7 @@ class DeleteBookMutation(graphene.Mutation):
         except Book.DoesNotExist:
             return cls(success=False, message="Book not found.")
 
-
+#make crud operation on book 
 class Mutation(graphene.ObjectType):
     create_book = CreateBookMutation.Field()
     update_book = UpdateBookMutation.Field()

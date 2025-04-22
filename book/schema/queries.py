@@ -9,7 +9,7 @@ from ..models import Category, Book ,Author ,Review
 
 class Query(graphene.ObjectType):
     books = graphene.List(BookType)
-    
+#apply filter and return all book and pagination 
     all_books = DjangoFilterConnectionField(BookType ,filterset_class =BookFilter )
 
     book = graphene.Field(BookType ,id = graphene.Int(required = True))
@@ -18,14 +18,14 @@ class Query(graphene.ObjectType):
     category_by_name = graphene.Field(CategoryType, name=graphene.String(required=True))
 
     
-
+#return all books
     def resolve_books(root, info):
         return Book.objects.select_related("category" ,'author').all()
-    
+    #return one book
     def resolve_book(root, info ,id):
         return Book.objects.select_related("category" ,'author').get(id=id)
 
-
+#retrurn all authors
     def resolve_authors(root, info):
         return Author.objects.all()
 
